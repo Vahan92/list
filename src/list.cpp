@@ -13,7 +13,7 @@ List::List()
 
 List::List(int value)
 {
-        node* temp = new node;
+        Node* temp = new Node;
         temp -> value = value;
         temp -> next = NULL;
         temp -> prev = NULL;
@@ -28,8 +28,8 @@ bool List::swap_el(int index1,int index2)
                 std::cout << "aystex karox e linel dzer govazdy " << std::endl;
                 return false;
         }
-        node* temp = first;
-        node* temp2 = first;
+        Node* temp = first;
+        Node* temp2 = first;
         for(int i = 0; i < index1; ++i)
         {
                 temp = temp ->next;
@@ -47,8 +47,8 @@ bool List::set(int index,int data)
         if ( !check_index(index) ) {
                 return false;
         }
-        node* temp = first;
-        node* to_add = new node;
+        Node* temp = first;
+        Node* to_add = new Node;
         to_add -> value = data;
         if(index == 0)
         {    
@@ -76,14 +76,14 @@ List::~List()
 
 void List::add(int data)
 {
-        node *to_add = new node;
+        Node *to_add = new Node;
         to_add -> next = NULL;
         to_add -> value = data;
         if ( first == NULL ) { 
                 first = to_add;
                 first -> prev = NULL;
         } else {
-                node* cur;
+                Node* cur;
                 for ( cur = first; cur -> next != 0; cur = cur -> next);
                 cur -> next = to_add;
                 to_add -> prev = cur; 
@@ -93,7 +93,7 @@ void List::add(int data)
 unsigned int List::search_index(int value)
 {
         unsigned int index = 0;
-        node* temp;
+        Node* temp;
         temp = first;
         while (temp -> value != value){
                 ++index;
@@ -108,7 +108,7 @@ unsigned int List::search_index(int value)
 
 bool List::check_index(unsigned int index)
 {
-        node* temp;
+        Node* temp;
         temp = first;
         int c = 0;        
         while (temp->next) {
@@ -125,7 +125,7 @@ bool List::check_index(unsigned int index)
 
 int List::search_value(unsigned int index)
 {
-        node* temp;
+        Node* temp;
         temp = first;
         for (int i = 1; i <= index; ++i) {
                 if ( temp == NULL ) {
@@ -139,13 +139,13 @@ int List::search_value(unsigned int index)
 
 void List::delete_el(int x) 
 {
-        node *to_del=first;
+        Node *to_del=first;
         if (x==0) 
         {
                 first=first->next;
                 delete to_del;
         } else {
-                node *current=first;
+                Node *current=first;
                 for(int i=0;i<x-1;i++)
                         current=current->next;
                 to_del=current->next;
@@ -156,7 +156,7 @@ void List::delete_el(int x)
 
 void List::print_list()
 {
-        node* temp = first;
+        Node* temp = first;
         while(temp != NULL)
         {
                 std::cout << temp -> value << "    ";

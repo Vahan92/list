@@ -9,8 +9,8 @@
 class List 
 { 
         protected:
-                node* first;
-                node* last;
+                Node* first;
+                Node* last;
         public:
                 /**
                  * @name list

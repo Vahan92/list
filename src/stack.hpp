@@ -52,7 +52,7 @@ class Stack : private List
                 void pop ();
                 int size ();
                 void print_stack();
-                node* top();
+                Node* top();
 };
 
 #endif

@@ -12,7 +12,7 @@ Stack::Stack()
 
 Stack::Stack(int value)
 {
-        node* temp = new node;
+        Node* temp = new Node;
         temp -> value = value;
         temp -> prev = NULL;
         first = temp;
@@ -23,11 +23,12 @@ Stack::Stack(int value)
 Stack::~Stack()
 {
         std::cout << " DESTRUCTOR " << std::endl;
+
 }
 
 void Stack::push(int data)
 {
-        node *to_add = new node;
+        Node *to_add = new Node;
         to_add -> prev = last;
         to_add -> value = data;
         last = to_add;
@@ -35,11 +36,11 @@ void Stack::push(int data)
 
 void Stack::pop() 
 {
-        //node *to_del = last;
+        //Node *to_del = last;
         if ( last == NULL ) {
                 std::cout << "Stack is empty" << std::endl;
         } else {
-                node* temp = last -> prev;
+                Node* temp = last -> prev;
                 delete last;
                 last = temp;              
         }
@@ -47,7 +48,7 @@ void Stack::pop()
 
 void Stack::print_stack()
 {
-        node* temp = last;
+        Node* temp = last;
         while(temp != NULL)
         {
                 std::cout << temp -> value << std::endl;
@@ -58,7 +59,7 @@ void Stack::print_stack()
 int Stack::size()
 {
         int count = 0;
-        node* temp = last;
+        Node* temp = last;
         while(temp != NULL)
         {
                 temp = temp -> prev;
@@ -67,7 +68,7 @@ int Stack::size()
         return count;
 }
 
-node* Stack::top()
+Node* Stack::top()
 {
         return last;
 }
