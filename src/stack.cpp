@@ -4,27 +4,24 @@
 #include <algorithm>
 #include <cstdlib>
 
+int Stack::count = 0;
 
 Stack::Stack()
         :List()
 {
 }
 
-Stack::Stack(int value)
+Stack::Stack(int v)
+        :List(v)
 {
-        Node* temp = new Node;
-        temp -> value = value;
-        temp -> prev = NULL;
-        first = temp;
-        last = temp;
-     
+        ++count;
 }
 
-Stack::~Stack()
+/*Stack::~Stack()
 {
-        std::cout << " DESTRUCTOR " << std::endl;
-
-}
+ 
+        std::cout << " DESTRUCTOR Stack " << std::endl;//????
+}*/
 
 void Stack::push(int data)
 {
@@ -32,18 +29,20 @@ void Stack::push(int data)
         to_add -> prev = last;
         to_add -> value = data;
         last = to_add;
+        ++count;
 }
 
 void Stack::pop() 
 {
-        //Node *to_del = last;
         if ( last == NULL ) {
                 std::cout << "Stack is empty" << std::endl;
         } else {
                 Node* temp = last -> prev;
+                std::cout << "last deleted element - " <<  last -> value << std::endl;
                 delete last;
                 last = temp;              
         }
+        --count;
 }
 
 void Stack::print_stack()
@@ -53,22 +52,15 @@ void Stack::print_stack()
         {
                 std::cout << temp -> value << std::endl;
                 temp = temp -> prev;
-        }
+        }        
 }
 
 int Stack::size()
 {
-        int count = 0;
-        Node* temp = last;
-        while(temp != NULL)
-        {
-                temp = temp -> prev;
-                ++count;
-        }
         return count;
 }
 
-Node* Stack::top()
+int Stack::top()
 {
-        return last;
+        return last -> value;
 }

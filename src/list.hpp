@@ -88,7 +88,7 @@ class List
                 void delete_el (int index);
 
                 bool set(int index,int data);
-                void print_list();
+                void print();
 };
 
 #endif

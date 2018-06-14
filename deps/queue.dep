@@ -1,0 +1,2 @@
+deps/queue.dep  obj/queue.o: src/queue.cpp src/queue.hpp src/list.hpp \
+ src/node.hpp

@@ -1,2 +1,2 @@
 deps/main.dep  obj/main.o: src/main.cpp src/stack.hpp src/node.hpp \
- src/list.hpp
+ src/list.hpp src/queue.hpp

@@ -6,7 +6,7 @@
  * @class stack
  * @brief stack of integer type
  */
-class Stack : private List 
+class Stack : protected List 
 { 
         public:
                 /**
@@ -27,7 +27,7 @@ class Stack : private List
                  * @name list
                  * @brief the destructor of the class
                  */
-                ~Stack ();
+                //~Stack ();
 
                 /**
                  * @name add
@@ -52,7 +52,8 @@ class Stack : private List
                 void pop ();
                 int size ();
                 void print_stack();
-                Node* top();
+                int top();
+                static int count;
 };
 
 #endif

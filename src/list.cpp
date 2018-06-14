@@ -18,6 +18,7 @@ List::List(int value)
         temp -> next = NULL;
         temp -> prev = NULL;
         first = temp;
+        last = temp;
      
 }
 
@@ -71,7 +72,16 @@ bool List::set(int index,int data)
 
 List::~List()
 {
-        std::cout << " DESTRUCTOR " << std::endl;
+        Node* temp = first;
+        int i = 0;
+        while(temp != NULL)
+        {
+                delete_el(i);
+                temp = temp ->next;
+                ++i;
+        }
+
+        std::cout << " Destructor List " << std::endl;
 }
 
 void List::add(int data)
@@ -154,7 +164,7 @@ void List::delete_el(int x)
         }
 }
 
-void List::print_list()
+void List::print()
 {
         Node* temp = first;
         while(temp != NULL)
@@ -164,3 +174,4 @@ void List::print_list()
         }
         std::cout << std::endl;
 }
+
