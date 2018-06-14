@@ -1,0 +1,2 @@
+deps/stack.dep  obj/stack.o: src/stack.cpp src/stack.hpp src/node.hpp \
+ src/list.hpp
